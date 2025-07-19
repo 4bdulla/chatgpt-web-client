@@ -8,22 +8,26 @@ window.onload = async () => {
   document.getElementById('autoLaunch').checked = settings.autoLaunch;
 
   const presetSelect = document.getElementById('shortcutPreset');
-  const current = settings.globalShortcut || 'CmdOrCtrl+Shift+G';
+  const current = settings.globalShortcut ?? 'CmdOrCtrl+Shift+G';
 
-  const found = [...presetSelect.options].some(opt => {
-    if (opt.value === current) {
+  if (!current) {
+    presetSelect.value = 'None';
+  } else {
+    const found = [...presetSelect.options].some(opt => {
+      if (opt.value === current) {
+        presetSelect.value = current;
+        return true;
+      }
+      return false;
+    });
+
+    if (!found) {
+      const custom = document.createElement('option');
+      custom.value = current;
+      custom.textContent = current + ' (custom)';
+      presetSelect.appendChild(custom);
       presetSelect.value = current;
-      return true;
     }
-    return false;
-  });
-
-  if (!found && current) {
-    const custom = document.createElement('option');
-    custom.value = current;
-    custom.textContent = current + ' (custom)';
-    presetSelect.appendChild(custom);
-    presetSelect.value = current;
   }
 
   document.querySelectorAll('input[type=checkbox]').forEach(el => {
