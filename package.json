@@ -7,7 +7,8 @@
     "start": "electron .",
     "package": "electron-packager . chatgpt-webclient --platform=linux --arch=x64 --icon=assets/icon.png --overwrite",
     "deb": "npm run package && electron-installer-debian --src chatgpt-webclient-linux-x64/ --dest dist/ --arch amd64",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",
@@ -43,8 +44,10 @@
       "target": "dmg"
     },
     "linux": {
-      "target": ["deb", "AppImage"]
+      "target": [
+        "deb",
+        "AppImage"
+      ]
     }
   }
-
 }
