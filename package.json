@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "package": "electron-packager . chatgpt-webclient --platform=linux --arch=x64 --icon=assets/icon.png --overwrite",
-    "deb": "npm run package && electron-installer-debian --src chatgpt-webclient-linux-x64/ --dest dist/ --arch amd64"
+    "deb": "npm run package && electron-installer-debian --src chatgpt-webclient-linux-x64/ --dest dist/ --arch amd64",
+    "dist": "electron-builder"
   },
   "keywords": [],
   "author": "",
