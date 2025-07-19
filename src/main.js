@@ -43,7 +43,6 @@ function createMainWindow() {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
-      preload: path.join(__dirname, 'preload.js'),
       partition: 'persist:chatgpt'
     }
   });
