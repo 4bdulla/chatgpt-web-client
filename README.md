@@ -80,6 +80,23 @@ npm run deb
 npm run build:flatpak
 ```
 
+### Build on Windows
+
+```bash
+npm run dist -- --win
+```
+
+Produces an installer in the `dist/` directory. Building Windows packages
+requires either a Windows host or Wine installed on Linux.
+
+### Build on macOS
+
+```bash
+npm run dist -- --mac
+```
+
+DMG creation requires running on macOS.
+
 Output is in `dist/`.
 
 ---
